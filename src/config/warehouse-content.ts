@@ -94,23 +94,7 @@ export const warehouseConfig = {
           "Light manufacturing",
         ],
       },
-      {
-        name: "Jilotepec Warehouse",
-        address: "Manzana 057, Jilotepec de Molina Enríquez, Edo. De Mexico, C.P. 54250",
-        mapLink: "https://maps.app.goo.gl/mgj6YRcikX8zeznC8",
-        usps: [
-          "Strategic location connecting Mexico City, Querétaro, Hidalgo, and the Bajío region",
-          "Large-format industrial space designed for scalable operations and expansion",
-          "Immediate access to the México–Querétaro Highway (57) and Arco Norte",
-          "Lower congestion and highly competitive occupancy costs",
-        ],
-        idealFor: [
-          "Large-format logistics",
-          "Regional or national DCs",
-          "Manufacturing support",
-          "Operations seeking scalability and competitive lease rates",
-        ],
-      },
+     
     ],
   },
 

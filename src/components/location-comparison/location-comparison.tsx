@@ -1,9 +1,15 @@
-'use client';
+"use client";
 
-import { warehouseConfig } from '@/config/warehouse-content';
-import { CheckCircle2, MapPin, Truck, Building2, ExternalLink } from 'lucide-react';
-import Image from 'next/image';
-import { warehouseLoc1, warehouseLoc2 } from '@/assets';
+import { warehouseConfig } from "@/config/warehouse-content";
+import {
+  CheckCircle2,
+  MapPin,
+  Truck,
+  Building2,
+  ExternalLink,
+} from "lucide-react";
+import Image from "next/image";
+import { warehouseLoc1, warehouseLoc2 } from "@/assets";
 
 export default function LocationComparison() {
   const locations = warehouseConfig.locations.addresses;
@@ -14,22 +20,18 @@ export default function LocationComparison() {
       <div className="container max-w-7xl mx-auto ">
         {/* Header */}
         <div className="text-center mb-12 lg:mb-16">
-          <h2
-            className="text-4xl lg:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
-            
-          >
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">
             Choose Your Ideal Location
           </h2>
-          <p
-            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
-           
-          >
-            Two strategic locations, each optimized for different operational needs. Compare and find the perfect fit for your business.
+        
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]">
+            A strategic location, optimized for operational efficiency. Discover
+            how it can perfectly support your business needs.
           </p>
         </div>
 
         {/* Comparison Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="flex flex-col w-[70%] mx-auto">
           {locations.map((location, index) => (
             <div
               key={index}
@@ -38,21 +40,17 @@ export default function LocationComparison() {
               {/* Location Header */}
               <div
                 className={`p-6 border-b border-gray-200 flex-shrink-0 min-h-[180px] flex flex-col justify-between ${
-                  index === 0 ? 'bg-[#EFF6FF]' : 'bg-[#F0F9FF]'
+                  index === 0 ? "bg-[#EFF6FF]" : "bg-[#F0F9FF]"
                 }`}
               >
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <MapPin className="w-6 h-6 flex-shrink-0 text-[#173C65]" />
-                    <h3
-                      className="text-2xl font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
-                    >
+                    <h3 className="text-2xl font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">
                       {location.name}
                     </h3>
                   </div>
-                  <p
-                    className="text-sm text-gray-600 mb-3 font-['Assistant',sans-serif]"
-                  >
+                  <p className="text-sm text-gray-600 mb-3 font-['Assistant',sans-serif]">
                     {location.address}
                   </p>
                 </div>
@@ -120,9 +118,7 @@ export default function LocationComparison() {
               <div className="p-6 border-t border-gray-200 flex-grow flex flex-col">
                 <div className="flex items-center gap-2 mb-4">
                   <Truck className="w-5 h-5 text-[#173C65]" />
-                  <h4
-                    className="text-lg font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
-                  >
+                  <h4 className="text-lg font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">
                     Key Advantages
                   </h4>
                 </div>
@@ -130,9 +126,7 @@ export default function LocationComparison() {
                   {location.usps.map((usp, uspIndex) => (
                     <li key={uspIndex} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span
-                        className="text-sm text-gray-700 font-['Assistant',sans-serif]"
-                      >
+                      <span className="text-sm text-gray-700 font-['Assistant',sans-serif]">
                         {usp}
                       </span>
                     </li>
@@ -142,9 +136,7 @@ export default function LocationComparison() {
                 {/* Ideal For */}
                 <div className="flex items-center gap-2 mb-4">
                   <Building2 className="w-5 h-5 text-[#173C65]" />
-                  <h4
-                    className="text-lg font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
-                  >
+                  <h4 className="text-lg font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">
                     Ideal For
                   </h4>
                 </div>
@@ -153,7 +145,6 @@ export default function LocationComparison() {
                     <span
                       key={useCaseIndex}
                       className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#EFF6FF] text-[#173C65] font-['Assistant',sans-serif]"
-                   
                     >
                       {useCase}
                     </span>
@@ -163,10 +154,7 @@ export default function LocationComparison() {
             </div>
           ))}
         </div>
-
-       
       </div>
     </section>
   );
 }
-

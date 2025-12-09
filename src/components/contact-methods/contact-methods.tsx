@@ -189,9 +189,9 @@ export default function ContactMethods() {
         <div className="container max-w-7xl mx-auto  relative z-10">
           <div className="text-center mb-8">
             <h2
-              className="text-3xl lg:text-4xl font-bold mb-3 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
+              className="text-4xl lg:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
-              contact us 
+              Contact Us 
             </h2>
             <p
               className="text-base text-gray-600 max-w-xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
