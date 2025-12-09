@@ -12,7 +12,7 @@ export const warehouseConfig = {
   // Banner/Hero Section
   banner: {
     title: "BRAND-NEW CLASS A INDUSTRIAL FACILITY FOR LEASE",
-    subtitle: "PRIME LOCATION FOR LOGISTICS & LAST-MILE OPERATIONS",
+    subtitle: "Prime location for logistics & last-mile operations",
     description: "Introducing one of the most attractive new industrial developments in Tlalnepantla—a Class A distribution facility strategically located in the highly demanded Barrientos submarket, the epicenter of logistics, e-commerce, transportation, and last-mile delivery for Mexico City and the entire Metro Area.",
     ctaText: "Book a Tour",
     ctaLink: "#contact",
@@ -97,7 +97,7 @@ export const warehouseConfig = {
       {
         name: "Jilotepec Warehouse",
         address: "Manzana 057, Jilotepec de Molina Enríquez, Edo. De Mexico, C.P. 54250",
-        mapLink: "https://maps.app.goo.gl/JKUyxyL6S2gf3nJ98",
+        mapLink: "https://maps.app.goo.gl/mgj6YRcikX8zeznC8",
         usps: [
           "Strategic location connecting Mexico City, Querétaro, Hidalgo, and the Bajío region",
           "Large-format industrial space designed for scalable operations and expansion",

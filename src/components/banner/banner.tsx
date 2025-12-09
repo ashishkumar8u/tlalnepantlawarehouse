@@ -34,16 +34,16 @@ export default function Banner() {
         <div className=" ">
           <div className="row flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-12">
             {/* Left Column - Text Content */}
-            <div className="col-lg-6 v-center w-full lg:w-[40%] flex flex-col justify-start ">
+            <div className="col-lg-6 v-center w-full lg:w-[50%] flex flex-col  justify-start ">
               <div className="header-heading">
                 <h1 
-                  className="font-bold text-[32px] md:text-[40px] lg:text-[45px] leading-[1.2] mb-[15px] md:mb-[18px] m-0 p-0 mt-0 text-[#173C65] font-['Libre_Baskerville',Georgia,serif]" 
+                  className="font-bold text-[32px] md:text-3xl leading-[1.2] mb-[15px] md:mb-[18px] m-0 p-0 mt-0 text-[#173C65] font-['Libre_Baskerville',Georgia,serif]" 
                 >
                   {warehouseConfig.banner.title}
                   {warehouseConfig.banner.subtitle && (
                     <>
                       <br className="leading-none" />
-                      <span className="text-[24px] md:text-[28px] lg:text-[24px] leading-tight block mt-[0.3em]">
+                      <span className="text-[24px] md:text-[28px] font-medium lg:text-3xl leading-tight block mt-8 ">
                         {warehouseConfig.banner.subtitle}
                       </span>
                     </>

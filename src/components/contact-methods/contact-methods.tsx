@@ -71,30 +71,7 @@ export default function ContactMethods() {
         )}
 
         {/* Download Brochure Button */}
-        {warehouseConfig.ctas.download.link && warehouseConfig.ctas.download.link !== '#' && (
-          <a
-            href={warehouseConfig.ctas.download.link}
-            download
-            className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 bg-white text-black border-[#173C65]"
-            aria-label="Download brochure"
-            title={warehouseConfig.ctas.download.text}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-          </a>
-        )}
+       
       </div>
 
       {/* Mobile: Expandable Contact Bar (Bottom) */}
@@ -223,7 +200,7 @@ export default function ContactMethods() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
             {/* WhatsApp Card */}
             {warehouseConfig.ctas.whatsapp.link && warehouseConfig.ctas.whatsapp.link !== '#' && (
               <a
@@ -294,43 +271,7 @@ export default function ContactMethods() {
               </button>
             )}
 
-            {/* Download Brochure Card */}
-            {warehouseConfig.ctas.download.link && warehouseConfig.ctas.download.link !== '#' && (
-              <a
-                href={warehouseConfig.ctas.download.link}
-                download
-                className="group flex flex-col items-center justify-center p-2 rounded-2xl border-2 border-gray-200 hover:border-[#173C65] transition-all duration-300 hover:shadow-xl bg-white"
-              >
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-transform duration-300 group-hover:scale-110 border-2 bg-white border-[#173C65]"
-                >
-                  <svg
-                    className="w-7 h-7 text-black"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  className="text-lg font-bold mb-1 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
-                >
-                  Download Brochure
-                </h3>
-                <p
-                  className="text-xs text-gray-600 text-center font-['Assistant',sans-serif]"
-                >
-                  Get detailed information
-                </p>
-              </a>
-            )}
+           
           </div>
         </div>
       </section>
