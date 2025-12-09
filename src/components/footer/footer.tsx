@@ -26,7 +26,6 @@ export default function Footer() {
             </div>
             <p
               className="text-gray-300 text-sm leading-relaxed mb-4"
-              className="font-['Assistant',sans-serif]"
             >
               Premium Class A industrial warehouse facilities in strategic locations across Mexico. Your partner for logistics excellence.
             </p>
@@ -35,7 +34,6 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-1"
-              className="font-['Assistant',sans-serif]"
             >
               <span>{warehouseConfig.brand.website}</span>
               <ExternalLink className="w-3 h-3" />
@@ -46,7 +44,6 @@ export default function Footer() {
           <div>
             <h4
               className="text-lg font-semibold mb-4"
-              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Quick Links
             </h4>
@@ -71,7 +68,6 @@ export default function Footer() {
           <div>
             <h4
               className="text-lg font-semibold mb-4"
-              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Contact
             </h4>
@@ -124,7 +120,6 @@ export default function Footer() {
           <div>
             <h4
               className="text-lg font-semibold mb-4"
-              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Our Locations
             </h4>
@@ -153,7 +148,6 @@ export default function Footer() {
         <div className="border-t border-gray-700 pt-8 mb-8">
             <h4
               className="text-sm font-semibold mb-3"
-              className="text-white font-['Libre_Baskerville',Georgia,serif] font-normal"
             >
               Disclaimer
             </h4>
@@ -199,7 +193,6 @@ export default function Footer() {
             </div>
             <p
               className="text-sm text-gray-400 text-center md:text-right "
-              className="font-['Assistant',sans-serif]"
             >
               © {currentYear} {warehouseConfig.brand.name}. All rights reserved.
             </p>

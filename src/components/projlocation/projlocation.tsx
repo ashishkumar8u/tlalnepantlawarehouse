@@ -37,18 +37,15 @@ export default function ProjectLocation() {
         {/* Location Tabs */}
         <div className="flex justify-center gap-4 mb-8 flex-wrap">
           {locations.map((location, index) => (
-            <button
-              key={index}
-              onClick={() => setSelectedLocation(index)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                selectedLocation === index
-                  ? 'text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-              className={`font-['Assistant',sans-serif] ${
-                selectedLocation === index ? 'bg-[#173C65]' : ''
-              }`}
-            >
+          <button
+            key={index}
+            onClick={() => setSelectedLocation(index)}
+            className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 font-['Assistant',sans-serif] ${
+              selectedLocation === index
+                ? 'text-white shadow-lg bg-[#173C65]'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
               {location.name}
             </button>
           ))}
