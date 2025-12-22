@@ -17,7 +17,7 @@ export default function ProjectLocation() {
 
   return (
     <section className="py-16 lg:py-24 bg-white" id="location">
-      <div className="container max-w-7xl mx-auto ">
+      <div className="container xl:max-w-7xl  mx-auto ">
         {/* Header */}
         <div className="text-center mb-12">
           <h2

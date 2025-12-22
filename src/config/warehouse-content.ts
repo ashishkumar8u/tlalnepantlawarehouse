@@ -24,7 +24,7 @@ export const warehouseConfig = {
   // Warehouse Features
   warehouseFeatures: {
     title: "Key Building Features",
-    subtitle: "Class A Specifications",
+    subtitle: "Class \"A\" Specifications",
     features: [
       {
         label: "Site Area",

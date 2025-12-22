@@ -20,7 +20,7 @@ export default function Banner() {
 
   return (
     <section 
-      className="hero-section relative overflow-hidden pt-[100px] pb-20 bg-white" 
+      className=" relative overflow-hidden pt-[100px] pb-0 md:pb-20 bg-white" 
       id="home"
     >
       {/* Background Image with Opacity */}
@@ -30,36 +30,38 @@ export default function Banner() {
           backgroundImage: `url(${bgImageUrl})`,
         }}
       />
-      <div className="text-block relative  max-w-7xl mx-auto z-10">
+      <div className="text-block relative  xl:max-w-7xl  w-[94%]  mx-auto z-10">
         <div className=" ">
-          <div className="row flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-12">
+          <div className="row flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-12 lg:mt-10">
             {/* Left Column - Text Content */}
-            <div className="col-lg-6 v-center w-full lg:w-[50%] flex flex-col  justify-start ">
+            <div className="col-lg-6 v-center  w-full lg:w-[50%] flex flex-col   md:justify-start ">
               <div className="header-heading">
                 <h1 
-                  className="font-bold text-[32px] md:text-3xl leading-[1.2] mb-[15px] md:mb-[18px] m-0 p-0 mt-0 text-[#173C65] font-['Libre_Baskerville',Georgia,serif]" 
+                  className="font-bold md:text-left text-xl   lg:text-2xl xl:text-3xl  text-center leading-[1.2] mb-[15px] md:mb-[18px] m-0 p-0 mt-0 text-[#173C65] font-['Libre_Baskerville',Georgia,serif]" 
                 >
                   {warehouseConfig.banner.title}
                   {warehouseConfig.banner.subtitle && (
                     <>
                       <br className="leading-none" />
-                      <span className="text-[24px] md:text-[28px] font-medium lg:text-3xl leading-tight block mt-8 ">
+                      <span className=" font-medium text-lg xl:text-2xl leading-tight block md:mt-3 mt-2 ">
                         {warehouseConfig.banner.subtitle}
                       </span>
                     </>
                   )}
                 </h1>
                 <p 
-                  className="text-[14px] md:text-[16px] leading-normal mb-[20px] md:mb-[24px] font-medium text-[#505050] font-['Assistant',sans-serif]" 
+                  className="text-[14px] md:text-[16px] text-center md:text-left leading-normal mb-[20px] md:mb-[24px] md:mt-12 mt-0 font-medium text-[#505050] font-['Assistant',sans-serif]" 
                 >
                   {warehouseConfig.banner.description}
                 </p>
+                <div className=' md:flex hidden'>
                 <a
                   href={warehouseConfig.banner.ctaLink}
-                  className="cta learnmore inline-block px-8 py-4 rounded-lg font-semibold text-base transition-opacity hover:opacity-90 w-fit border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
+                  className="cta learnmore inline-block mx-auto md:mx-0  px-8 py-4 rounded-lg font-semibold text-base transition-opacity hover:opacity-90 w-fit border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
                 >
                   {warehouseConfig.banner.ctaText}
                 </a>
+                </div>
               </div>
             </div>
 
@@ -68,7 +70,7 @@ export default function Banner() {
               <div className="single-image relative w-full ">
                 <div className="relative w-full overflow-hidden h-auto min-h-[400px]">
                   <Swiper
-                    className="mySwiper h-[480px]"
+                    className="mySwiper md:h-[480px] h-[400px]"
                     pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]}
                     loop={banners.length > 1}
@@ -79,18 +81,29 @@ export default function Banner() {
                     }
                   >
                     {banners.map((banner, index) => (
-                      <SwiperSlide key={index} className="h-[450px]">
+                      <SwiperSlide key={index} className="md:h-[450px] h-[350px] ">
                         <Image
                           src={banner}
                           alt={warehouseConfig.banner.title}
                           width={800}
                           height={450}
-                          className="w-full h-[450px] object-cover transition-opacity duration-500 rounded-[6px_6px_6px_50px]"
+                          className="w-full md:h-[450px] h-[350px] object-cover transition-opacity duration-500 rounded-[6px_6px_6px_50px]"
                           priority={index === 0}
                         />
+               
                       </SwiperSlide>
+                      
                     ))}
+                
                   </Swiper>
+                  <div className=' flex mb-8 md:hidden'>
+                <a
+                  href={warehouseConfig.banner.ctaLink}
+                  className="cta learnmore  inline-block mx-auto md:mx-0  px-8 py-2 rounded-lg font-semibold text-base transition-opacity hover:opacity-90 w-fit border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
+                >
+                  {warehouseConfig.banner.ctaText}
+                </a>
+                </div>
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[var(--gray-dark)] text-white">
-      <div className="container max-w-7xl mx-auto  py-12 lg:py-16">
+      <div className="container lg:max-w-7xl w-[94%] mx-auto  py-12 lg:py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8">
           {/* Company Info */}
@@ -147,7 +147,7 @@ export default function Footer() {
         {/* Disclaimer Section */}
         <div className="border-t border-gray-700 pt-8 mb-8">
             <h4
-              className="text-sm font-semibold mb-3"
+              className="text-sm text-center md:text-start font-semibold mb-3"
             >
               Disclaimer
             </h4>

@@ -24,6 +24,13 @@ import projLocationImage from './projlocation/image.png';
 import propertyImage from './propert/image.png';
 
 // Warehouse images
+import Building1 from './warehouse/building1.jpeg';
+import Buildingtwo from './warehouse/building2.jpeg';
+import Building3 from './warehouse/building3.jpeg';
+import Building4 from './warehouse/building4.jpeg';
+import Building5 from './warehouse/building5.jpeg';
+import Building6 from './warehouse/building6.jpeg';
+import Building7 from './warehouse/building7.jpeg';
 import warehouseIndustrial from './warehouse/industrial.png';
 import warehouseShot1 from './warehouse/shot1.png';
 import warehouseShot2 from './warehouse/shot2.png';
@@ -58,6 +65,13 @@ export {
   propertyImage,
   // Warehouse images
   warehouseIndustrial,
+  Building1,
+  Buildingtwo,
+  Building3,
+  Building4,
+  Building5,
+  Building6,
+  Building7,
   warehouseShot1,
   warehouseShot2,
   warehouseShot3,

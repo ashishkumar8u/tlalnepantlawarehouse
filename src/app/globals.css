@@ -36,18 +36,30 @@ html {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-libre: "Libre Baskerville", Georgia, serif;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", 
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   --background: #ffffff;
   --foreground: #171717;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* expose custom fonts to Tailwind */
+  --font-sans: var(--font-family-sans-serif);
+  --font-mono: var(--font-family-monospace);
+
+  /* add this */
+  --font-libre: var(--font-libre);
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -60,4 +72,21 @@ body {
   /* background: var(--background); */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* FONT WEIGHTS */
+.fw-light {
+  font-weight: var(--fw-light);
+}
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+.fw-medium {
+  font-weight: var(--fw-medium);
+}
+.fw-semibold {
+  font-weight: var(--fw-semibold);
+}
+.fw-bold {
+  font-weight: var(--fw-bold);
 }

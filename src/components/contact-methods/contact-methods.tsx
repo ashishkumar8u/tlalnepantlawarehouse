@@ -23,7 +23,7 @@ export default function ContactMethods() {
   return (
     <>
       {/* Desktop: Fixed Contact Buttons (Right Side) */}
-      <div className="hidden lg:flex fixed right-6 bottom-6 z-50 flex-col gap-4">
+      <div className="hidden lg:flex  fixed xl:right-6 lg:right-8 bottom-6 z-50 flex-col gap-4">
         {/* WhatsApp Button */}
         {warehouseConfig.ctas.whatsapp.link && warehouseConfig.ctas.whatsapp.link !== '#' && (
           <a
@@ -81,7 +81,7 @@ export default function ContactMethods() {
           onClick={() => setIsExpanded(!isExpanded)}
           className="w-full py-3 px-4 flex items-center justify-between font-['Assistant',sans-serif]"
         >
-          <span className="font-semibold text-gray-700">Contact Us</span>
+          <span className="font-semibold text-gray-700 ">Contact Us</span>
           <svg
             className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
             fill="none"
@@ -99,7 +99,7 @@ export default function ContactMethods() {
 
         {/* Expanded Contact Options */}
         {isExpanded && (
-          <div className="px-4 pb-4 grid grid-cols-3 gap-3">
+          <div className="px-4 pb-4 grid grid-cols-2 gap-3">
             {/* WhatsApp */}
             {warehouseConfig.ctas.whatsapp.link && warehouseConfig.ctas.whatsapp.link !== '#' && (
               <a
@@ -144,30 +144,7 @@ export default function ContactMethods() {
               </button>
             )}
 
-            {/* Download */}
-            {warehouseConfig.ctas.download.link && warehouseConfig.ctas.download.link !== '#' && (
-              <a
-                href={warehouseConfig.ctas.download.link}
-                download
-                className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2 bg-white text-black border-[#173C65]"
-              >
-                <svg
-                  className="w-6 h-6 mb-1 text-black"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                <span className="text-xs font-medium">Brochure</span>
-              </a>
-            )}
+          
           </div>
         )}
       </div>
@@ -186,21 +163,21 @@ export default function ContactMethods() {
             />
           );
         })()}
-        <div className="container max-w-7xl mx-auto  relative z-10">
+        <div className="container xl:max-w-7xl w-[94%] mx-auto  relative z-10">
           <div className="text-center mb-8">
             <h2
-              className="text-4xl lg:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
+              className="text-xl   lg:text-2xl xl:text-3xl mb-3  md:mb-6 text-[#173C65] fw-bold font-libre  "
             >
               Contact Us 
             </h2>
             <p
-              className="text-base text-gray-600 max-w-xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
+              className="md:text-xl text-base text-gray-600 max-w-xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
             >
               Choose your preferred method to contact us. We are here to help you find the perfect warehouse solution.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 gap-4 lg:gap-6">
             {/* WhatsApp Card */}
             {warehouseConfig.ctas.whatsapp.link && warehouseConfig.ctas.whatsapp.link !== '#' && (
               <a

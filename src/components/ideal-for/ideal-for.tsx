@@ -18,17 +18,17 @@ export default function IdealFor() {
 
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-white" id="ideal-for">
-      <div className="container max-w-7xl mx-auto ">
+      <div className="container xl:max-w-7xl w-[94%] mx-auto ">
         {/* Header */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
           <h2
-            className="text-4xl lg:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
+            className="text-xl   lg:text-2xl xl:text-3xl mb-3  md:mb-6 text-[#173C65] fw-bold font-libre"
            
           >
             {warehouseConfig.targetIndustries.title}
           </h2>
           <p
-            className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
+            className="text-sm lg:text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
            
           >
             {warehouseConfig.targetIndustries.subtitle}

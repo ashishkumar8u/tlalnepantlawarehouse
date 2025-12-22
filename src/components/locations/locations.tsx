@@ -19,31 +19,31 @@ export default function Locations() {
           backgroundImage: `url(${bgImageUrl})`,
         }}
       />
-      <div className="max-w-7xl mx-auto  relative z-10">
+      <div className="xl:max-w-7xl w-[94%] mx-auto  relative z-10">
         {/* Header Section */}
-        <div className="pt-16 pb-12 text-center">
-          <h1 className="text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">{warehouseConfig.locations.title}</h1>
-          <p className="max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed">
+        <div className="md:pt-16 pt-14 md:pb-12 pb-8 text-center">
+          <h1 className="text-xl   lg:text-2xl xl:text-3xl mb-3  md:mb-6 text-[#173C65] fw-bold font-libre">{warehouseConfig.locations.title}</h1>
+          <p className="max-w-2xl mx-auto text-sm md:text-base text-slate-600 leading-relaxed">
             {warehouseConfig.locations.subtitle}
           </p>
           {warehouseConfig.locations.description && (
-            <p className="max-w-3xl mx-auto text-base text-slate-500 leading-relaxed mt-4">
+            <p className="max-w-3xl mx-auto text-sm md:text-base text-slate-500 leading-relaxed mt-4">
               {warehouseConfig.locations.description}
             </p>
           )}
         </div>
 
         {/* Main Content Section */}
-        <div className="pb-20">
+        <div className="md:pb-20 ">
         <div className="grid md:grid-cols-2 gap-12 items-stretch">
           {/* Left Column - Highlights */}
           <div className="flex flex-col">
-            <h2 className="text-2xl font-bold mb-8 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">Strategic Access Points</h2>
+            <h2 className="md:text-xl text-lg font-bold mb-4 md:mb-8 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">Strategic Access Points</h2>
             <ul className="space-y-4 flex-grow">
               {highlights.map((highlight, index) => (
                 <li key={index} className="flex items-center gap-4 text-slate-700">
-                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 text-[#173C65]" />
-                  <span className="text-base font-medium">{highlight}</span>
+                  <CheckCircle2 className="md:w-6 md:h-6 w-4 h-4 flex-shrink-0 text-[#173C65]" />
+                  <span className="md:text-base text-sm font-medium">{highlight}</span>
                 </li>
               ))}
             </ul>

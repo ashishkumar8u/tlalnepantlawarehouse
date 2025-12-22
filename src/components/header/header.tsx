@@ -145,75 +145,17 @@ export default function Header() {
     'Gallery',
     'Contact',
   ];
+  const formattedPhoneNumber = warehouseConfig.contact.phoneNumber.replace(/\s|-|\(|\)/g, '');
 
   return (
-    <header className="w-full bg-white sticky top-0 z-[999]">
-      {/* Top Utility Bar */}
-      <div className="w-full bg-[var(--gray-dark)] py-2 px-4 md:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Website Link */}
-          <div className="flex items-center gap-2 px-3 py-1 -ml-12 md:-ml-16 lg:-ml-20">
-            <a 
-              href={`https://${warehouseConfig.brand.website}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white text-sm hover:opacity-80 transition-opacity font-[var(--font-family-sans-serif)]"
-            >
-              {warehouseConfig.brand.website}
-            </a>
-          </div>
-
-          {/* CTA Button */}
-          <a
-            href={warehouseConfig.ctas.primary.link}
-            className="px-5 py-[5px] text-sm font-normal rounded-lg hover:opacity-90 transition-opacity -mr-12 md:-mr-16 lg:-mr-20 border-2 bg-white text-black border-[#173C65] font-[var(--font-family-sans-serif)]"
-          >
-            {warehouseConfig.ctas.primary.text}
-          </a>
-        </div>
-      </div>
-
+    <header className="w-full  bg-white sticky top-0 z-999">
       {/* Main Navigation Bar */}
-      <nav className={`w-full py-4 px-4 md:px-6 lg:px-8 transition-colors duration-300 fixed top-0 left-0 right-0 z-[100] ${isScrolled ? 'bg-white' : 'bg-[#EFF6FF]'}`}>
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* NEWMARK Logo */}
-          <div className="flex items-center">
-            <Image
-              src={logo}
-              alt="NEWMARK Logo"
-              width={180}
-              height={45}
-              className="h-[clamp(1.5rem,5vw,2.25rem)] w-auto"
-              priority
-            />
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-3 xl:gap-4">
-            {navLinks.map((link, index) => {
-              const linkId = link.toLowerCase().replace(' ', '-');
-              const isActive = activeSection === linkId;
-              
-              return (
-                <a
-                  key={index}
-                  href={`#${linkId}`}
-                  className={`text-base font-medium transition-colors font-['Assistant',sans-serif] ${
-                    isActive
-                      ? 'border-b-2 pb-1 text-[#173C65] border-[#173C65]'
-                      : 'text-[var(--dark)] border-transparent hover:text-[#173C65]'
-                  }`}
-                >
-                  {link}
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Mobile Menu Button */}
+      <nav className={`w-full  py-4 px-4 md:px-6 lg:px-8 transition-colors duration-300 fixed top-0 left-0 right-0 z-100 ${isScrolled ? 'bg-white' : 'bg-[#EFF6FF]'}`}>
+        <div className="max-w-7xl mx-auto  flex items-center justify-between">
+          {/* Mobile: Hamburger on the left */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-[var(--dark)] focus:outline-none"
+            className="order-1 md:order-3 lg:hidden text-(--dark) focus:outline-none"
             aria-label="Toggle menu"
           >
             <svg
@@ -239,6 +181,56 @@ export default function Header() {
               )}
             </svg>
           </button>
+
+          {/* Logo - centered on mobile, left on tablet/desktop */}
+          <div className="order-2 md:order-1 lg:order-1 flex-1 flex justify-center md:flex-none md:justify-start">
+            <Image
+              src={logo}
+              alt="NEWMARK Logo"
+              width={180}
+              height={45}
+              className="h-6 w-auto"
+              priority
+            />
+          </div>
+
+          {/* Mobile: Call Now on the right */}
+          <a
+            href={`tel:${formattedPhoneNumber}`}
+            className="order-3 md:hidden inline-flex items-center justify-center text-sm font-semibold text-white bg-[#173C65] px-3 py-2 rounded-md shadow-sm"
+          >
+            Call Now
+          </a>
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4 lg:order-2">
+            {navLinks.map((link, index) => {
+              const linkId = link.toLowerCase().replace(' ', '-');
+              const isActive = activeSection === linkId;
+              
+              return (
+                <a
+                  key={index}
+                  href={`#${linkId}`}
+                  className={`text-base font-medium transition-colors font-['Assistant',sans-serif] ${
+                    isActive
+                      ? 'border-b-2 pb-1 text-[#173C65] border-[#173C65]'
+                      : 'text-(--dark) border-transparent hover:text-[#173C65]'
+                  }`}
+                >
+                  {link}
+                </a>
+              );
+            })}
+          </div>
+
+          {/* Desktop: Call Now on the right */}
+          <a
+            href={`tel:${formattedPhoneNumber}`}
+            className="hidden lg:inline-flex items-center justify-center text-sm font-semibold text-white bg-[#173C65] px-4 py-2 rounded-md shadow-sm lg:order-3 ml-4"
+          >
+            Call Now
+          </a>
         </div>
 
         {/* Mobile Menu */}
@@ -257,7 +249,7 @@ export default function Header() {
                     className={`text-base font-semibold transition-colors px-2 py-1 font-['Assistant',sans-serif] ${
                       isActive
                         ? 'border-l-4 text-[#173C65] border-[#173C65]'
-                        : 'text-[var(--dark)] border-transparent hover:text-[#173C65]'
+                        : 'text-(--dark) border-transparent hover:text-[#173C65]'
                     }`}
                   >
                     {link}

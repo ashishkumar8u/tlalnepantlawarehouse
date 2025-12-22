@@ -11,7 +11,7 @@ import {
   bg2, 
   warehouseDrone, 
   warehouseLayout, 
-  warehouseLoc1, 
+  // warehouseLoc1, 
   warehouseLoc2, 
   warehouseLoc3, 
   warehouseLoc4 
@@ -30,8 +30,8 @@ export default function Gallery() {
 
   // Video files from public folder
   const videoFiles = [
-    '/video/IMG_0231.mp4',
-    '/video/IMG_0234.mp4',
+    // '/video/IMG_0231.mp4',
+    // '/video/IMG_0234.mp4',
     '/video/IMG_0236.mp4',
     '/video/IMG_0237.mp4',
     '/video/IMG_0239.mp4',
@@ -45,25 +45,25 @@ export default function Gallery() {
   // Mix images and videos together
   const galleryItems: GalleryItem[] = [
     { type: 'image' as const, src: warehouseIndustrial, alt: 'Industrial warehouse exterior' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 1', videoSrc: videoFiles[0] },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 1', videoSrc: videoFiles[0] },  
     { type: 'image' as const, src: warehouseShot1, alt: 'Warehouse interior shot 1' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 2', videoSrc: videoFiles[1] },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 2', videoSrc: videoFiles[1] },
     { type: 'image' as const, src: warehouseShot2, alt: 'Warehouse interior shot 2' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 3', videoSrc: videoFiles[2] },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 3', videoSrc: videoFiles[2] },
     { type: 'image' as const, src: warehouseShot3, alt: 'Warehouse interior shot 3' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 4', videoSrc: videoFiles[3] },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 4', videoSrc: videoFiles[3] },
     { type: 'image' as const, src: warehouseShot4, alt: 'Warehouse interior shot 4' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 5', videoSrc: videoFiles[4] },
-    { type: 'image' as const, src: warehouseDrone, alt: 'Aerial drone view of warehouse' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 6', videoSrc: videoFiles[5] },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 5', videoSrc: videoFiles[4] },
+    // { type: 'image' as const, src: warehouseDrone, alt: 'Aerial drone view of warehouse' },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 6', videoSrc: videoFiles[5] },
     { type: 'image' as const, src: warehouseLayout, alt: 'Warehouse floor plan layout' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 7', videoSrc: videoFiles[6] },
-    { type: 'image' as const, src: warehouseLoc1, alt: 'Location view 1' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 8', videoSrc: videoFiles[7] },
-    { type: 'image' as const, src: warehouseLoc2, alt: 'Location view 2' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 9', videoSrc: videoFiles[8] },
-    { type: 'image' as const, src: warehouseLoc3, alt: 'Location view 3' },
-    { type: 'video' as const, src: null, alt: 'Warehouse video 10', videoSrc: videoFiles[9] },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 7', videoSrc: videoFiles[6] },
+    // { type: 'image' as const, src: warehouseLoc1, alt: 'Location view 1' },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 8', videoSrc: videoFiles[7] },
+    // { type: 'image' as const, src: warehouseLoc2, alt: 'Location view 2' },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 9', videoSrc: videoFiles[8] },
+    // { type: 'image' as const, src: warehouseLoc3, alt: 'Location view 3' },
+    // { type: 'video' as const, src: null, alt: 'Warehouse video 10', videoSrc: videoFiles[9] },
     
   ].filter(item => item.type === 'video' || (item.type === 'image' && item.src)); // Filter out any undefined images
 
@@ -142,12 +142,12 @@ export default function Gallery() {
           {/* Header */}
           <div className="text-center mb-4 lg:mb-5 px-4 md:px-6 lg:px-8">
             <h2
-              className="text-4xl lg:text-5xl  mb-6 py-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
+              className="text-xl   lg:text-2xl xl:text-3xl  md:mb-6 mb-0 py-6 text-[#173C65] fw-bold font-libre"
             >
               Gallery
             </h2>
             <p
-              className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
+              className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-['Assistant',sans-serif]"
             >
               Explore our state-of-the-art warehouse facilities through our photo and video gallery. See the quality and features that make our spaces ideal for your operations.
             </p>
@@ -155,9 +155,9 @@ export default function Gallery() {
 
           {/* Gallery Masonry Grid */}
           {galleryItems.length > 0 ? (
-            <div className="w-full px-2 md:px-4 lg:px-6">
+            <div className="w-[88%] mx-auto px-4 md:px-7 lg:px-6">
               <div 
-                className="grid gap-1 lg:gap-1.5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] auto-rows-[minmax(80px,auto)] grid-flow-row-dense"
+                className="grid gap-1 lg:gap-1.5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] auto-rows-[minmax(150px,auto)] md:auto-rows-[minmax(250px,auto)] grid-flow-row-dense"
               >
                 {galleryItems.map((item, index) => {
                   // Create varied sizes for masonry effect - more horizontal items

@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { warehouseIndustrial, warehouseShot1, warehouseShot2, warehouseArea } from '@/assets';
+import {Building1, Building6, Buildingtwo, Building3, Building4,Building5 } from '@/assets';  
 import { Warehouse, Ruler, Building2, Layers } from 'lucide-react';
 import { warehouseConfig } from '@/config/warehouse-content';
 import { bg2 } from '@/assets';
@@ -14,7 +14,7 @@ import { bg2 } from '@/assets';
 export default function Apartments() {
   // Convert warehouse features to display cards
   const features = warehouseConfig.warehouseFeatures.features;
-  const featureImages = [warehouseIndustrial, warehouseShot1, warehouseShot2, warehouseArea];
+  const featureImages = [Building1, Building6, Buildingtwo, Building3, Building4,Building5];
 
   // Icon map for feature icons
   const iconMap: Record<string, ReactElement> = {
@@ -45,16 +45,16 @@ export default function Apartments() {
           backgroundImage: `url(${bgImageUrl})`,
         }}
       />
-      <div className="container max-w-7xl mx-auto  relative z-10">
+      <div className="container lg:max-w-7xl w-[94%] mx-auto  relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-6 md:mb-12 lg:mb-16">
           <h2
-            className="text-4xl lg:text-5xl font-bold mb-6 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal"
+            className="text-xl   lg:text-2xl xl:text-3xl fw-bold font-libre mb-3   md:mb-6 text-[#173C65] "
           >
             {warehouseConfig.warehouseFeatures.title}
           </h2>
           <p
-            className="text-base lg:text-lg max-w-2xl mx-auto leading-relaxed text-(--gray) font-(--font-family-sans-serif)"
+            className="text-sm md:text-base max-w-2xl mx-auto leading-relaxed text-(--gray) font-(--font-family-sans-serif)"
           >
             {warehouseConfig.warehouseFeatures.subtitle}
           </p>
@@ -103,16 +103,16 @@ export default function Apartments() {
                       <div className="flex items-center gap-3 mb-3">
                         {card.iconEl}
                         <h3
-                          className="text-xl font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] text-[1.25rem]"
+                          className="text-xl  font-bold text-[#173C65] font-['Libre_Baskerville',Georgia,serif] text-[1.25rem]"
                         >
                           {card.label}
                         </h3>
                       </div>
 
                       {/* Value */}
-                      <div className="mb-2">
+                      <div className="mb-2 mx-9">
                         <span
-                          className="text-2xl font-bold text-[#173C65]"
+                          className="md:text-2xl text-lg  font-bold text-[#173C65]"
                         >
                           {card.value}
                         </span>
@@ -121,7 +121,7 @@ export default function Apartments() {
                       {/* Description */}
                       {card.description && (
                         <p
-                          className="text-sm text-(--gray) font-(--font-family-sans-serif)"
+                          className="text-sm text-(--gray) mx-9  font-(--font-family-sans-serif)"
                         >
                           {card.description}
                         </p>
