@@ -164,7 +164,7 @@ export default function Footer() {
         {/* Legal Links & Copyright */}
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+            {/* <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               {warehouseConfig.legal?.privacyPolicyUrl && (
                 <a
                   href={warehouseConfig.legal.privacyPolicyUrl}
@@ -190,7 +190,7 @@ export default function Footer() {
                   </a>
                 </>
               )}
-            </div>
+            </div> */}
             <p
               className="text-sm text-gray-400 text-center md:text-right "
             >

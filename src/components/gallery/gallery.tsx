@@ -65,7 +65,7 @@ export default function Gallery() {
     // { type: 'image' as const, src: warehouseLoc3, alt: 'Location view 3' },
     // { type: 'video' as const, src: null, alt: 'Warehouse video 10', videoSrc: videoFiles[9] },
     
-  ].filter(item => item.type === 'video' || (item.type === 'image' && item.src)); // Filter out any undefined images
+  ].filter(item =>  (item.type === 'image' && item.src)); // Filter out any undefined images
 
   const openModal = (index: number) => {
     setSelectedImage(index);
@@ -155,7 +155,7 @@ export default function Gallery() {
 
           {/* Gallery Masonry Grid */}
           {galleryItems.length > 0 ? (
-            <div className="w-[88%] mx-auto px-4 md:px-7 lg:px-6">
+            <div className="xl:w-[88%] w-[95%] mx-auto px-2  lg:px-2">
               <div 
                 className="grid gap-1 lg:gap-1.5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] auto-rows-[minmax(150px,auto)] md:auto-rows-[minmax(250px,auto)] grid-flow-row-dense"
               >

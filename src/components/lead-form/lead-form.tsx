@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { warehouseConfig } from '@/config/warehouse-content';
 
 export default function LeadForm() {
@@ -8,6 +8,23 @@ export default function LeadForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const apiHost = useMemo(() => {
+    const host = process.env.NEXT_PUBLIC_API_HOST || '';
+    return host.endsWith('/') ? host.slice(0, -1) : host;
+  }, []);
+
+  const clientId = useMemo(() => {
+    return process.env.NEXT_PUBLIC_CLIENT_ID || '39f5fed7-e83c-498a-bf6f-48edb58a5e9f';
+  }, []);
+
+  const toNumberIfPossible = (value?: string) => {
+    if (!value) return undefined;
+    const cleaned = value.replace(/,/g, '').trim();
+    const parsed = Number(cleaned);
+    return Number.isFinite(parsed) ? parsed : cleaned;
+  };
 
   const handleChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -48,15 +65,43 @@ export default function LeadForm() {
     }
 
     setIsSubmitting(true);
+    setSubmitError(null);
+    setIsSubmitted(false);
 
     try {
-      // TODO: Replace with actual API endpoint
-      // Example: await fetch('/api/leads', { method: 'POST', body: JSON.stringify(formData) });
-      
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      
-      console.log('Form submitted:', formData);
+      if (!apiHost) {
+        throw new Error('API host is not configured.');
+      }
+
+      const payload = {
+        client_id: clientId,
+        form_data: {
+          full_name: formData.fullName?.trim() || '',
+          company_name: formData.companyName?.trim() || '',
+          email: formData.email?.trim() || '',
+          phone: formData.phone?.trim() || '',
+          warehouse_size_sqft: toNumberIfPossible(formData.warehouseSize),
+          preferred_location: formData.preferredLocation?.trim() || '',
+          monthly_budget: toNumberIfPossible(formData.budget),
+          lease_duration: formData.leaseDuration?.trim() || '',
+          timeline_to_move_in: formData.timeline?.trim() || '',
+          additional_information: formData.additionalNotes?.trim() || '',
+        },
+      };
+
+      const response = await fetch(`${apiHost}/forms`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || result?.status === false) {
+        throw new Error(result?.message || 'Failed to submit the form.');
+      }
       
       // Reset form
       setFormData({});
@@ -68,7 +113,8 @@ export default function LeadForm() {
       }, 5000);
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('There was an error submitting the form. Please try again.');
+      const message = error instanceof Error ? error.message : 'There was an error submitting the form. Please try again.';
+      setSubmitError(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -205,6 +251,17 @@ export default function LeadForm() {
           >
             <p className="text-green-700 font-medium text-center">
               ✅ Thank you! We've received your inquiry and will get back to you shortly.
+            </p>
+          </div>
+        )}
+
+        {/* Error Message */}
+        {submitError && (
+          <div
+            className="mb-6 p-4 rounded-lg border-2 border-red-500 bg-red-50 font-['Assistant',sans-serif]"
+          >
+            <p className="text-red-700 font-medium text-center">
+              {submitError}
             </p>
           </div>
         )}
