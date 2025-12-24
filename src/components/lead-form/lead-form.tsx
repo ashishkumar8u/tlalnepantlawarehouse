@@ -26,6 +26,44 @@ export default function LeadForm() {
     return Number.isFinite(parsed) ? parsed : cleaned;
   };
 
+  const getBrowser = (): string => {
+    if (typeof window === 'undefined') return 'Unknown';
+    const ua = navigator.userAgent;
+    if (ua.includes('Chrome') && !ua.includes('Edg')) return 'Chrome';
+    if (ua.includes('Firefox')) return 'Firefox';
+    if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
+    if (ua.includes('Edg')) return 'Edge';
+    if (ua.includes('Opera') || ua.includes('OPR')) return 'Opera';
+    return 'Unknown';
+  };
+
+  const getDeviceType = (): string => {
+    if (typeof window === 'undefined') return 'Unknown';
+    const ua = navigator.userAgent;
+    const width = window.innerWidth;
+    
+    if (/tablet|ipad|playbook|silk/i.test(ua)) return 'Tablet';
+    if (/mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(ua)) return 'Mobile';
+    if (width < 768) return 'Mobile';
+    if (width < 1024) return 'Tablet';
+    return 'Desktop';
+  };
+
+  const getClientIP = async (): Promise<string> => {
+    try {
+      // Try to get IP from a free API service
+      const response = await fetch('https://api.ipify.org?format=json', {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' },
+      });
+      const data = await response.json();
+      return data.ip || 'Unknown';
+    } catch (error) {
+      console.error('Failed to fetch client IP:', error);
+      return 'Unknown';
+    }
+  };
+
   const handleChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error when user starts typing
@@ -69,7 +107,10 @@ export default function LeadForm() {
     setIsSubmitted(false);
 
     try {
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC"
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+      const browser = getBrowser();
+      const device_type = getDeviceType();
+      const client_IP = await getClientIP();
 
       if (!apiHost) {
         throw new Error('API host is not configured.');
@@ -88,7 +129,10 @@ export default function LeadForm() {
           lease_duration: formData.leaseDuration?.trim() || '',
           timeline_to_move_in: formData.timeline?.trim() || '',
           additional_information: formData.additionalNotes?.trim() || '',
-          timezone
+          timezone,
+          client_IP,
+          browser,
+          device_type
         },
       };
 
