@@ -35,7 +35,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.gallery': 'Galería',
     'nav.contact': 'Contacto',
     // Header
-    'header.callNow': 'Llamar Ahora',
+    'header.callNow': 'Llama Ahora',
     'header.language': 'EN',
   },
 };

@@ -2,6 +2,7 @@
 
 import type { ReactElement } from 'react';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -10,6 +11,16 @@ import {Building1, Building6, Buildingtwo, Building3, Building4,Building5 } from
 import { Warehouse, Ruler, Building2, Layers } from 'lucide-react';
 import { useWarehouseConfig } from '@/hooks/use-warehouse-config';
 import { bg2 } from '@/assets';
+
+
+
+
+type WarehouseFeature = {
+  label: string;
+  value: string;
+  icon: string;
+  description?: string;
+};
 
 export default function Apartments() {
   const warehouseConfig = useWarehouseConfig();
@@ -27,7 +38,7 @@ export default function Apartments() {
     spacing: <Ruler className="w-6 h-6 text-[#173C65]" />,
   };
 
-  const featureCards = features.map((feature, index) => ({
+  const featureCards = features.map((feature: WarehouseFeature, index: number) => ({
     image: featureImages[index % featureImages.length],
     iconEl: iconMap[feature.icon] || <Warehouse className="w-6 h-6 text-[#173C65]" />,
     label: feature.label,
@@ -79,7 +90,7 @@ export default function Apartments() {
             1024: { slidesPerView: 3 },
           }}
         >
-          {featureCards.map((card, index) => {
+          {featureCards.map((card: { image: string | StaticImageData; iconEl: ReactElement; label: string; value: string; description?: string }, index: number) => {
             return (
               <SwiperSlide key={index}>
                 <div className="shrink-0 w-full border-2 ">

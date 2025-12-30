@@ -138,7 +138,7 @@ export default function Footer() {
               {t('footer.ourLocations')}
             </h4>
             <ul className="space-y-2">
-              {warehouseConfig.locations.addresses.map((location, index) => (
+              {warehouseConfig.locations.addresses.map((location: { name: string; mapLink: string }, index: number) => (
                 <li key={index}>
                   <a
                     href={location.mapLink}

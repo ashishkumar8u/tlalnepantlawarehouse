@@ -5,6 +5,12 @@ import { propertyImage, warehouseLayout, bg2 } from "@/assets";
 import Image from "next/image";
 import { useWarehouseConfig } from "@/hooks/use-warehouse-config";
 
+type SpecificationTab = {
+  id: string;
+  label: string;
+  items: string[];
+};
+
 export default function PropertySpecification() {
   const warehouseConfig = useWarehouseConfig();
   const [activeTab, setActiveTab] = useState(
@@ -13,7 +19,7 @@ export default function PropertySpecification() {
 
   // Convert config tabs to the format needed
   const specifications = warehouseConfig.specifications.tabs.reduce(
-    (acc, tab) => {
+    (acc: Record<string, { title: string; items: string[] }>, tab: SpecificationTab) => {
       acc[tab.id] = {
         title: tab.label,
         items: tab.items,
@@ -54,7 +60,7 @@ export default function PropertySpecification() {
         {/* Tabs */}
         <div className="w-full overflow-x-auto md:overflow-x-visible">
           <div className="flex gap-4 md:mb-12 mb-8 flex-nowrap md:flex-wrap justify-start md:justify-center px-2">
-            {tabs.map((tab) => (
+            {tabs.map((tab: SpecificationTab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
@@ -79,7 +85,7 @@ export default function PropertySpecification() {
                 {activeSpec.title}
               </h2>
               <ul className="space-y-4 flex-grow">
-                {activeSpec.items.map((item, index) => (
+                {activeSpec.items.map((item: string, index: number) => (
                   <li key={index} className="flex items-start gap-3">
                     <div className="flex-shrink-0 md:mt-1">
                       <CheckCircle2 className="md:w-6 md:h-6 w-4 h-4 flex-shrink-0 text-[#173C65]" />

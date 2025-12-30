@@ -43,7 +43,7 @@ export default function Locations() {
           <div className="flex flex-col">
             <h2 className="md:text-xl text-lg font-bold mb-4 md:mb-8 text-[#173C65] font-['Libre_Baskerville',Georgia,serif] font-normal">{t('locations.strategicAccessPoints')}</h2>
             <ul className="space-y-4 flex-grow">
-              {highlights.map((highlight, index) => (
+              {highlights.map((highlight: string, index: number) => (
                 <li key={index} className="flex items-center gap-4 text-slate-700">
                   <CheckCircle2 className="md:w-6 md:h-6 w-4 h-4 flex-shrink-0 text-[#173C65]" />
                   <span className="md:text-base text-sm font-medium">{highlight}</span>

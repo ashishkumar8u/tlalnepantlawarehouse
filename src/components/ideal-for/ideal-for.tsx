@@ -4,6 +4,11 @@ import React from 'react';
 import { useWarehouseConfig } from '@/hooks/use-warehouse-config';
 import { Package, Truck, Store, Factory, Pill, Car } from 'lucide-react';
 
+type Industry = {
+  name: string;
+  description: string;
+};
+
 export default function IdealFor() {
   const warehouseConfig = useWarehouseConfig();
   const industries = warehouseConfig.targetIndustries.industries;
@@ -41,7 +46,7 @@ export default function IdealFor() {
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-300">
             {/* Left Column */}
             <div className="divide-y divide-gray-300">
-              {industries.filter((_, index) => index % 2 === 0).map((industry, colIndex) => {
+              {industries.filter((_: Industry, index: number) => index % 2 === 0).map((industry: Industry, colIndex: number) => {
                 const originalIndex = colIndex * 2;
                 return (
                   <div key={originalIndex} className="flex items-start gap-6 p-6 hover:bg-gray-50 transition-colors duration-200">
@@ -69,7 +74,7 @@ export default function IdealFor() {
             </div>
             {/* Right Column */}
             <div className="divide-y divide-gray-300">
-              {industries.filter((_, index) => index % 2 === 1).map((industry, colIndex) => {
+              {industries.filter((_: Industry, index: number) => index % 2 === 1).map((industry: Industry, colIndex: number) => {
                 const originalIndex = colIndex * 2 + 1;
                 return (
                   <div key={originalIndex} className="flex items-start gap-6 p-6 hover:bg-gray-50 transition-colors duration-200">

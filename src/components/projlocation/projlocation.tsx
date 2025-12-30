@@ -4,6 +4,14 @@ import { useState } from 'react';
 import { warehouseConfig } from '@/config/warehouse-content';
 import { MapPin, ExternalLink } from 'lucide-react';
 
+type LocationAddress = {
+  name: string;
+  address: string;
+  mapLink: string;
+  usps: string[];
+  idealFor: string[];
+};
+
 export default function ProjectLocation() {
   const [selectedLocation, setSelectedLocation] = useState(0);
   const locations = warehouseConfig.locations.addresses;
@@ -36,7 +44,7 @@ export default function ProjectLocation() {
 
         {/* Location Tabs */}
         <div className="flex justify-center gap-4 mb-8 flex-wrap">
-          {locations.map((location, index) => (
+          {locations.map((location: LocationAddress, index: number) => (
           <button
             key={index}
             onClick={() => setSelectedLocation(index)}
@@ -130,7 +138,7 @@ export default function ProjectLocation() {
                   Key Advantages
                 </h4>
                 <ul className="space-y-2">
-                  {locations[selectedLocation].usps.map((usp, uspIndex) => (
+                  {locations[selectedLocation].usps.map((usp: string, uspIndex: number) => (
                     <li
                       key={uspIndex}
                       className="flex items-start gap-2 text-gray-700"
@@ -156,7 +164,7 @@ export default function ProjectLocation() {
                   Ideal For
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {locations[selectedLocation].idealFor.map((useCase, useCaseIndex) => (
+                  {locations[selectedLocation].idealFor.map((useCase: string, useCaseIndex: number) => (
                     <span
                       key={useCaseIndex}
                       className="px-3 py-1.5 rounded-full text-sm font-medium bg-[#EFF6FF] text-[#173C65] font-['Assistant',sans-serif]"

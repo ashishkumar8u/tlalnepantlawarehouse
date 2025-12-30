@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import { useUITranslations } from '@/hooks/use-warehouse-config';
 import { 
   warehouseIndustrial, 
@@ -20,7 +21,7 @@ import {
 
 type GalleryItem = {
   type: 'image' | 'video';
-  src: any;
+  src: StaticImageData | string | null;
   alt: string;
   videoSrc?: string;
 };
@@ -71,18 +72,25 @@ export default function Gallery() {
 
   const openModal = (index: number) => {
     setSelectedImage(index);
-    if (typeof window !== 'undefined') {
-      document.body.style.overflow = 'hidden';
-    }
   };
 
   const closeModal = () => {
     setSelectedImage(null);
-    if (typeof window !== 'undefined') {
-      document.body.style.overflow = 'unset';
-      // Stay on the same section - no scrolling
-    }
   };
+
+  // Sync body overflow with modal state
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (selectedImage !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
 
   // Autoplay videos when they come into view
   useEffect(() => {
@@ -192,7 +200,7 @@ export default function Gallery() {
                         gridColumn: size.col,
                       }}
                     >
-                      {item.type === 'image' ? (
+                      {item.type === 'image' && item.src ? (
                         <Image
                           src={item.src}
                           alt={item.alt}
@@ -283,7 +291,7 @@ export default function Gallery() {
             </svg>
           </button>
           <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center">
-            {galleryItems[selectedImage].type === 'image' ? (
+            {galleryItems[selectedImage].type === 'image' && galleryItems[selectedImage].src ? (
               <Image
                 src={galleryItems[selectedImage].src}
                 alt={galleryItems[selectedImage].alt}

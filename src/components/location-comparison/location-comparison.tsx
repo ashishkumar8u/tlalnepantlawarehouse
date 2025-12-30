@@ -12,6 +12,14 @@ import {
 import Image from "next/image";
 import { warehouseLoc1, warehouseLoc2 } from "@/assets";
 
+type LocationAddress = {
+  name: string;
+  address: string;
+  mapLink: string;
+  usps: string[];
+  idealFor: string[];
+};
+
 export default function LocationComparison() {
   const warehouseConfig = useWarehouseConfig();
   const t = useUITranslations();
@@ -34,7 +42,7 @@ export default function LocationComparison() {
 
         {/* Comparison Grid */}
         <div className="flex flex-col lg:w-[70%]  mx-auto">
-          {locations.map((location, index) => (
+          {locations.map((location: LocationAddress, index: number) => (
             <div
               key={index}
               className="bg-linear-to-br from-slate-50 to-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
@@ -84,7 +92,7 @@ export default function LocationComparison() {
                     </h4>
                   </div>
                   <ul className="space-y-3">
-                    {location.usps.map((usp, uspIndex) => (
+                    {location.usps.map((usp: string, uspIndex: number) => (
                       <li key={uspIndex} className="flex items-start gap-3">
                         <CheckCircle2 className="md:w-6 md:h-6 h-4 w-6 shrink-0 text-[#173C65]" />
                         <span className="text-sm text-gray-700 font-['Assistant',sans-serif]">
@@ -131,7 +139,7 @@ export default function LocationComparison() {
                     </h4>
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    {location.idealFor.map((useCase, useCaseIndex) => (
+                    {location.idealFor.map((useCase: string, useCaseIndex: number) => (
                       <span
                         key={useCaseIndex}
                         className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#EFF6FF] text-[#173C65] font-['Assistant',sans-serif]"
