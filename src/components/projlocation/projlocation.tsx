@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { warehouseConfig } from '@/config/warehouse-content';
 import { MapPin, ExternalLink } from 'lucide-react';
+import { trackButtonClick } from '@/utils/button-tracking';
 
 type LocationAddress = {
   name: string;
@@ -47,7 +48,10 @@ export default function ProjectLocation() {
           {locations.map((location: LocationAddress, index: number) => (
           <button
             key={index}
-            onClick={() => setSelectedLocation(index)}
+            onClick={() => {
+              trackButtonClick(`location-tab-${index}-${location.name.toLowerCase().replace(/\s+/g, '-')}`);
+              setSelectedLocation(index);
+            }}
             className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 font-['Assistant',sans-serif] ${
               selectedLocation === index
                 ? 'text-white shadow-lg bg-[#173C65]'
@@ -101,6 +105,7 @@ export default function ProjectLocation() {
                 href={locations[selectedLocation].mapLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackButtonClick(`location-map-link-${selectedLocation}`)}
                 className="inline-flex items-center gap-2 text-sm font-medium hover:opacity-80 transition-opacity"
                 style={{
                   color: '#173C65',

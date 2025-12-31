@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { warehouseConfig } from '@/config/warehouse-content';
 import { logo } from '@/assets';
 import { useLanguage } from '@/contexts/language-context';
+import { trackButtonClick } from '@/utils/button-tracking';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -161,7 +162,10 @@ export default function Header() {
         <div className="max-w-7xl mx-auto  flex items-center justify-between">
           {/* Mobile: Hamburger on the left */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => {
+              trackButtonClick('header-mobile-menu-toggle');
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
             className="order-1 md:order-3 lg:hidden text-(--dark) focus:outline-none"
             aria-label="Toggle menu"
           >
@@ -205,6 +209,7 @@ export default function Header() {
           <div className="order-3 md:hidden flex items-center gap-2">
             <a
               href={`tel:${formattedPhoneNumber}`}
+              onClick={() => trackButtonClick('header-mobile-call-now')}
               className="inline-flex items-center justify-center text-sm font-semibold text-white bg-[#173C65] px-3 py-2 rounded-md shadow-sm"
             >
               {t('header.callNow')}
@@ -221,6 +226,7 @@ export default function Header() {
                 <a
                   key={index}
                   href={`#${linkId}`}
+                  onClick={() => trackButtonClick(`header-nav-${linkId}`)}
                   className={`text-base font-medium transition-colors font-['Assistant',sans-serif] ${
                     isActive
                       ? 'border-b-2 pb-1 text-[#173C65] border-[#173C65]'
@@ -236,7 +242,10 @@ export default function Header() {
           {/* Desktop: Language button and Call Now on the right */}
           <div className="hidden lg:flex items-center gap-3 lg:order-3">
             <button
-              onClick={toggleLanguage}
+              onClick={() => {
+                trackButtonClick('header-language-toggle');
+                toggleLanguage();
+              }}
               className="inline-flex items-center justify-center text-sm font-semibold text-[#173C65] bg-white border border-[#173C65] px-4 py-2 rounded-md shadow-sm hover:bg-[#EFF6FF] transition-colors"
               aria-label="Toggle language"
             >
@@ -244,6 +253,7 @@ export default function Header() {
             </button>
             <a
               href={`tel:${formattedPhoneNumber}`}
+              onClick={() => trackButtonClick('header-desktop-call-now')}
               className="inline-flex items-center justify-center text-sm font-semibold text-white bg-[#173C65] px-4 py-2 rounded-md shadow-sm"
             >
               {t('header.callNow')}
@@ -263,7 +273,10 @@ export default function Header() {
                   <a
                     key={index}
                     href={`#${linkId}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      trackButtonClick(`header-mobile-nav-${linkId}`);
+                      setIsMobileMenuOpen(false);
+                    }}
                     className={`text-base font-semibold transition-colors px-2 py-1 font-['Assistant',sans-serif] ${
                       isActive
                         ? 'border-l-4 text-[#173C65] border-[#173C65]'
@@ -277,7 +290,10 @@ export default function Header() {
               {/* Language Switcher inside mobile menu */}
               <div className="pt-2 border-t border-gray-200 w-1/3">
                 <button
-                  onClick={toggleLanguage}
+                  onClick={() => {
+                    trackButtonClick('header-mobile-language-toggle');
+                    toggleLanguage();
+                  }}
                   className="inline-flex items-center justify-center text-sm font-semibold text-[#173C65] bg-white border border-[#173C65] px-3 py-2 rounded-md shadow-sm hover:bg-[#EFF6FF] transition-colors w-full"
                   aria-label="Toggle language"
                 >

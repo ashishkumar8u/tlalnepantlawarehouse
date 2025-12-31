@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useWarehouseConfig } from '@/hooks/use-warehouse-config';
 import { useUITranslations } from '@/hooks/use-warehouse-config';
+import { trackButtonClick } from '@/utils/button-tracking';
 
 export default function LeadForm() {
   const warehouseConfig = useWarehouseConfig();
@@ -19,7 +20,7 @@ export default function LeadForm() {
   }, []);
 
   const clientId = useMemo(() => {
-    return process.env.NEXT_PUBLIC_CLIENT_ID || '39f5fed7-e83c-498a-bf6f-48edb58a5e9f';
+    return process.env.NEXT_PUBLIC_CLIENT_ID || '457c9f07-81e4-4d32-9893-f9cc83f1e1bc';
   }, []);
 
   const toNumberIfPossible = (value?: string) => {
@@ -338,6 +339,7 @@ export default function LeadForm() {
             <button
               type="submit"
               disabled={isSubmitting}
+              onClick={() => trackButtonClick('lead-form-submit')}
               className="px-5 py-2.5 cursor-pointer rounded-lg font-semibold text-sm transition-all duration-200 w-full sm:w-auto min-w-[150px] disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
             >
               {isSubmitting ? t('form.submitting') : warehouseConfig.ctas.primary.text}

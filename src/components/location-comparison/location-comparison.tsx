@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { warehouseLoc1, warehouseLoc2 } from "@/assets";
+import { trackButtonClick } from "@/utils/button-tracking";
 
 type LocationAddress = {
   name: string;
@@ -122,6 +123,7 @@ export default function LocationComparison() {
                       href={location.mapLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackButtonClick(`location-comparison-map-${index}-${location.name.toLowerCase().replace(/\s+/g, '-')}`)}
                       className="inline-flex items-center gap-2 text-sm font-medium hover:opacity-80 transition-opacity text-[#173C65] font-['Assistant',sans-serif]"
                     >
                       <span>{t('locationComparison.openInMaps')}</span>

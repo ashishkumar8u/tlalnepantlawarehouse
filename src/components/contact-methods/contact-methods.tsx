@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useWarehouseConfig } from '@/hooks/use-warehouse-config';
 import { useUITranslations } from '@/hooks/use-warehouse-config';
 import { bg2 } from '@/assets';
+import { trackButtonClick } from '@/utils/button-tracking';
 
 export default function ContactMethods() {
   const warehouseConfig = useWarehouseConfig();
@@ -33,6 +34,7 @@ export default function ContactMethods() {
             href={warehouseConfig.ctas.whatsapp.link}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackButtonClick('contact-whatsapp-desktop')}
             className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 bg-white text-black border-[#173C65]"
             aria-label="Contact via WhatsApp"
             title={warehouseConfig.ctas.whatsapp.text}
@@ -51,7 +53,10 @@ export default function ContactMethods() {
         {/* Call Button */}
         {warehouseConfig.contact?.phoneNumber && (
           <button
-            onClick={handleCall}
+            onClick={() => {
+              trackButtonClick('contact-call-desktop');
+              handleCall();
+            }}
             className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 bg-white text-black border-[#173C65]"
             aria-label="Call us"
             title={`Call ${warehouseConfig.contact.phoneNumber}`}
@@ -81,7 +86,10 @@ export default function ContactMethods() {
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-2xl">
         {/* Toggle Button */}
         <button
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={() => {
+            trackButtonClick('contact-mobile-toggle');
+            setIsExpanded(!isExpanded);
+          }}
           className="w-full py-3 px-4 flex items-center justify-between font-['Assistant',sans-serif]"
         >
           <span className="font-semibold text-gray-700 ">{t('contact.contactUs')}</span>
@@ -109,6 +117,7 @@ export default function ContactMethods() {
                 href={warehouseConfig.ctas.whatsapp.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackButtonClick('contact-whatsapp-mobile')}
                 className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2 bg-white text-black border-[#173C65]"
               >
                 <svg
@@ -126,7 +135,10 @@ export default function ContactMethods() {
             {/* Call */}
             {warehouseConfig.contact?.phoneNumber && (
               <button
-                onClick={handleCall}
+                onClick={() => {
+                  trackButtonClick('contact-call-mobile');
+                  handleCall();
+                }}
                 className="flex flex-col items-center justify-center py-3 px-2 rounded-lg transition-all duration-200 hover:opacity-90 border-2 bg-white text-black border-[#173C65]"
               >
                 <svg
@@ -187,6 +199,7 @@ export default function ContactMethods() {
                 href={warehouseConfig.ctas.whatsapp.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackButtonClick('contact-whatsapp-section')}
                 className="group flex flex-col items-center justify-center p-2 rounded-2xl border-2 border-gray-200 hover:border-[#25D366] transition-all duration-300 hover:shadow-xl bg-white"
               >
                 <div
@@ -217,7 +230,10 @@ export default function ContactMethods() {
             {/* Call Card */}
             {warehouseConfig.contact?.phoneNumber && (
               <button
-                onClick={handleCall}
+                onClick={() => {
+                  trackButtonClick('contact-call-section');
+                  handleCall();
+                }}
                 className="group flex flex-col items-center justify-center p-2 rounded-2xl border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 hover:shadow-xl bg-white"
               >
                 <div

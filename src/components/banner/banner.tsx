@@ -9,6 +9,7 @@ import './styles.css';
 
 import { banner1, banner2, bg1, warehouseShot1, warehouseShot2, warehouseShot3 } from '@/assets';
 import { useWarehouseConfig } from '@/hooks/use-warehouse-config';
+import { trackButtonClick } from '@/utils/button-tracking';
 
 export default function Banner() {
   const warehouseConfig = useWarehouseConfig();
@@ -58,6 +59,7 @@ export default function Banner() {
                 <div className=' md:flex hidden'>
                 <a
                   href={warehouseConfig.banner.ctaLink}
+                  onClick={() => trackButtonClick('banner-cta-desktop')}
                   className="cta learnmore inline-block mx-auto md:mx-0  px-8 py-4 rounded-lg font-semibold text-base transition-opacity hover:opacity-90 w-fit border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
                 >
                   {warehouseConfig.banner.ctaText}
@@ -100,6 +102,7 @@ export default function Banner() {
                   <div className=' flex mb-8 md:hidden'>
                 <a
                   href={warehouseConfig.banner.ctaLink}
+                  onClick={() => trackButtonClick('banner-cta-mobile')}
                   className="cta learnmore  inline-block mx-auto md:mx-0  px-8 py-2 rounded-lg font-semibold text-base transition-opacity hover:opacity-90 w-fit border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif]"
                 >
                   {warehouseConfig.banner.ctaText}

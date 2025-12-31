@@ -3,6 +3,7 @@
 import { useWarehouseConfig } from "@/hooks/use-warehouse-config";
 import { useUITranslations } from "@/hooks/use-warehouse-config";
 import { CheckCircle2, Calendar, DollarSign, FileText } from "lucide-react";
+import { trackButtonClick } from "@/utils/button-tracking";
 
 export default function AvailabilityPricing() {
   const warehouseConfig = useWarehouseConfig();
@@ -126,6 +127,7 @@ export default function AvailabilityPricing() {
               </h3>
               <a
                 href="#contact"
+                onClick={() => trackButtonClick('availability-contact-cta')}
                 className="px-6 py-2 rounded-lg text-wrap font-semibold text-sm font-['Assistant',sans-serif]
              border-2 border-[#173C65] bg-white text-black text-center
              transition-all duration-300

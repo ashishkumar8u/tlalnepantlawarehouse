@@ -6,6 +6,7 @@ import { useUITranslations } from '@/hooks/use-warehouse-config';
 import { useLanguage } from '@/contexts/language-context';
 import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react';
 import { logo } from '@/assets';
+import { trackButtonClick } from '@/utils/button-tracking';
 
 export default function Footer() {
   const warehouseConfig = useWarehouseConfig();
@@ -47,6 +48,7 @@ export default function Footer() {
               href={`https://${warehouseConfig.brand.website}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackButtonClick('footer-website-link')}
               className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-1"
             >
               <span>{warehouseConfig.brand.website}</span>
@@ -66,6 +68,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <a
                     href={`#${link.key}`}
+                    onClick={() => trackButtonClick(`footer-nav-${link.key}`)}
                     className="text-sm text-gray-300 hover:text-white transition-colors"
                     style={{
                       fontFamily: 'Assistant, sans-serif',
@@ -91,6 +94,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
                   <a
                     href={`tel:${warehouseConfig.contact.phoneNumber.replace(/\s|-|\(|\)/g, '')}`}
+                    onClick={() => trackButtonClick('footer-phone-link')}
                     className="text-sm text-gray-300 hover:text-white transition-colors"
                     style={{
                       fontFamily: 'Assistant, sans-serif',
@@ -105,6 +109,7 @@ export default function Footer() {
                   <Mail className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
                   <a
                     href={`mailto:${warehouseConfig.contact.email}`}
+                    onClick={() => trackButtonClick('footer-email-link')}
                     className="text-sm text-gray-300 hover:text-white transition-colors"
                     style={{
                       fontFamily: 'Assistant, sans-serif',
@@ -144,6 +149,7 @@ export default function Footer() {
                     href={location.mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackButtonClick(`footer-location-${index}-${location.name.toLowerCase().replace(/\s+/g, '-')}`)}
                     className="text-sm text-gray-300 hover:text-white transition-colors inline-flex items-center gap-1"
                     style={{
                       fontFamily: 'Assistant, sans-serif',

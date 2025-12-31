@@ -4,6 +4,7 @@ import { Check, CheckCircle2 } from "lucide-react";
 import { propertyImage, warehouseLayout, bg2 } from "@/assets";
 import Image from "next/image";
 import { useWarehouseConfig } from "@/hooks/use-warehouse-config";
+import { trackButtonClick } from "@/utils/button-tracking";
 
 type SpecificationTab = {
   id: string;
@@ -63,7 +64,10 @@ export default function PropertySpecification() {
             {tabs.map((tab: SpecificationTab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  trackButtonClick(`property-tab-${tab.id}`);
+                  setActiveTab(tab.id);
+                }}
                 className={`px-6 md:py-3 py-1 rounded-lg font-serif md:text-lg text-base transition-all whitespace-nowrap duration-200 ${
                   activeTab === tab.id
                     ? "text-white shadow-lg bg-[#173C65]"

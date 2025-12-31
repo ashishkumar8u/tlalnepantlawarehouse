@@ -2,6 +2,7 @@
 
 import { useWarehouseConfig } from '@/hooks/use-warehouse-config';
 import { useUITranslations } from '@/hooks/use-warehouse-config';
+import { trackButtonClick } from '@/utils/button-tracking';
 
 export default function CTASection() {
   const warehouseConfig = useWarehouseConfig();
@@ -24,6 +25,7 @@ export default function CTASection() {
           <div className="flex w-1/2 md:w-[94%] flex-col sm:flex-row gap-4 justify-center items-center mx-auto">
   <a
     href={warehouseConfig.ctas.primary.link}
+    onClick={() => trackButtonClick('cta-section-primary')}
     className="cta inline-block px-8 lg:py-4 py-2 rounded-lg font-semibold text-base transition-all duration-300 hover:opacity-90 w-full sm:w-auto border-2 bg-white text-black border-[#173C65] font-['Assistant',sans-serif] hover:bg-[#173C65] hover:text-white hover:-translate-y-1 hover:shadow-lg text-center"
   >
     {warehouseConfig.ctas.primary.text}

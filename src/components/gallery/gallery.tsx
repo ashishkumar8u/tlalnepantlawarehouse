@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
 import { useUITranslations } from '@/hooks/use-warehouse-config';
+import { trackButtonClick } from '@/utils/button-tracking';
 import { 
   warehouseIndustrial, 
   warehouseShot1, 
@@ -71,10 +72,12 @@ export default function Gallery() {
   ].filter(item =>  (item.type === 'image' && item.src)); // Filter out any undefined images
 
   const openModal = (index: number) => {
+    trackButtonClick(`gallery-image-${index}`);
     setSelectedImage(index);
   };
 
   const closeModal = () => {
+    trackButtonClick('gallery-close-modal');
     setSelectedImage(null);
   };
 
@@ -316,6 +319,7 @@ export default function Gallery() {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
+                  trackButtonClick('gallery-nav-prev');
                   setSelectedImage((prev) => (prev === 0 ? galleryItems.length - 1 : (prev || 0) - 1));
                 }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10"
@@ -338,6 +342,7 @@ export default function Gallery() {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
+                  trackButtonClick('gallery-nav-next');
                   setSelectedImage((prev) => ((prev || 0) + 1) % galleryItems.length);
                 }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10"
