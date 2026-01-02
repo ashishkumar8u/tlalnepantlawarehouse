@@ -205,8 +205,18 @@ export default function Header() {
             />
           </div>
 
-          {/* Mobile: Call Now on the right */}
+          {/* Mobile: Language switcher and Call Now on the right */}
           <div className="order-3 md:hidden flex items-center gap-2">
+            <button
+              onClick={() => {
+                trackButtonClick('header-mobile-language-toggle');
+                toggleLanguage();
+              }}
+              className="inline-flex items-center justify-center text-sm font-semibold text-[#173C65] bg-white border border-[#173C65] px-3 py-2 rounded-md shadow-sm hover:bg-[#EFF6FF] transition-colors"
+              aria-label="Toggle language"
+            >
+              {language === 'en' ? 'ES' : 'EN'}
+            </button>
             <a
               href={`tel:${formattedPhoneNumber}`}
               onClick={() => trackButtonClick('header-mobile-call-now')}
@@ -287,19 +297,6 @@ export default function Header() {
                   </a>
                 );
               })}
-              {/* Language Switcher inside mobile menu */}
-              <div className="pt-2 border-t border-gray-200 w-1/3">
-                <button
-                  onClick={() => {
-                    trackButtonClick('header-mobile-language-toggle');
-                    toggleLanguage();
-                  }}
-                  className="inline-flex items-center justify-center text-sm font-semibold text-[#173C65] bg-white border border-[#173C65] px-3 py-2 rounded-md shadow-sm hover:bg-[#EFF6FF] transition-colors w-full"
-                  aria-label="Toggle language"
-                >
-                  {language === 'en' ? 'ES' : 'EN'}
-                </button>
-              </div>
             </div>
           </div>
         )}
