@@ -136,7 +136,7 @@ export default function Apartments() {
                       {/* Description */}
                       {card.description && (
                         <p
-                          className="text-sm text-(--gray) mx-9  font-(--font-family-sans-serif)"
+                          className="text-sm md:text-base text-(--gray) mx-9  font-(--font-family-sans-serif)"
                         >
                           {card.description}
                         </p>

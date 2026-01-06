@@ -54,7 +54,7 @@ export default function Locations() {
 
           {/* Right Column - Image */}
           <div className="flex justify-center h-full">
-            <div className="w-full h-full relative rounded-2xl overflow-hidden shadow-lg">
+            <div className="w-full h-64 md:h-full relative rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src={locationImage}
                 alt="Aerial city view with modern buildings"

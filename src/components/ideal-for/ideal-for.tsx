@@ -65,7 +65,7 @@ export default function IdealFor() {
                         {industry.name}
                       </h3>
                       <p
-                        className="text-sm text-gray-600 leading-relaxed font-['Assistant',sans-serif]"
+                        className="text-sm md:text-base text-gray-600 leading-relaxed font-['Assistant',sans-serif]"
                       >
                         {industry.description}
                       </p>
@@ -93,7 +93,7 @@ export default function IdealFor() {
                         {industry.name}
                       </h3>
                       <p
-                        className="text-sm text-gray-600 leading-relaxed font-['Assistant',sans-serif]"
+                        className="text-sm md:text-base text-gray-600 leading-relaxed font-['Assistant',sans-serif]"
                       >
                         {industry.description}
                       </p>
