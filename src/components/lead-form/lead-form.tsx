@@ -310,7 +310,7 @@ export default function LeadForm() {
   return (
     <section
       id="contact"
-      className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-white scroll-mt-20"
+      className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-white scroll-mt-20 max-w-[1520px] mx-auto"
     >
       <div className="container max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
