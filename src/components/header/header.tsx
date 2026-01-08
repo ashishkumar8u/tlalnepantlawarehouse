@@ -254,7 +254,7 @@ export default function Header() {
               alt="NEWMARK Logo"
               width={180}
               height={45}
-              className="h-6 w-auto"
+              className="h-5 md:h-6 w-auto"
               priority
               quality={90}
               sizes="180px"
