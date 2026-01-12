@@ -63,7 +63,8 @@ export async function trackButtonClick(buttonId: string): Promise<void> {
     const timezone = getTimezone();
 
     const payload = {
-      client_id: '3a8d670d-93a2-44f3-a535-3ec329b8340b',
+      client_id: 'ae7b40cc-500c-4c6b-a57a-84d44a5ac103',
+       project_id: 'a0bd8496-9464-48d6-b82c-05b7a9028021',
       button_id: buttonId,
       count: 1,
       ip_address,
@@ -75,7 +76,7 @@ export async function trackButtonClick(buttonId: string): Promise<void> {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "X-API-Key": "gAAAAABpVNqy0Gs3i5WxaEF6vk8slMC9IvWoR7S8iMMKWMXeLT49fcwpiBPWqV_GpGJYPKZb-oqZhpbHCpIrJXOjquwiFMPeGj9oy3i5rAUiM01P5QxXdxb-l30QN4MrvPWHiTSRSbIW",
+        "X-API-Key": "gAAAAABpZI3QbqPXKvM8kI3ow1G9xYLHQR8QccuXQQfCqQOn8y0Qcorpk3VCByfhZR_rb6-O9LRsdn5bmoSepBi7uSIwaCw_2mdRClkPK7DeJoQgKnqoBgvNj00XTdmAUS6ndze8o5fn",
       },
       body: JSON.stringify(payload),
     }).catch((error) => {
