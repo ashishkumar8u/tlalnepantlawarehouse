@@ -20,11 +20,11 @@ export default function LeadForm() {
   }, []);
 
   const clientId = useMemo(() => {
-    return process.env.NEXT_PUBLIC_CLIENT_ID || '983f1c31-e5b3-4b14-bff4-ae370010bd82';
+    return process.env.NEXT_PUBLIC_CLIENT_ID;
   }, []);
 
   const apiKey = useMemo(() => {
-    return process.env.NEXT_PUBLIC_API_KEY || 'gAAAAABpVNqy0Gs3i5WxaEF6vk8slMC9IvWoR7S8iMMKWMXeLT49fcwpiBPWqV_GpGJYPKZb-oqZhpbHCpIrJXOjquwiFMPeGj9oy3i5rAUiM01P5QxXdxb-l30QN4MrvPWHiTSRSbIW';
+    return `${process.env.NEXT_PUBLIC_API_KEY}`;
   }, []);
 
   const toNumberIfPossible = (value?: string) => {
@@ -150,6 +150,7 @@ export default function LeadForm() {
 
       const payload = {
         client_id: clientId,
+        project_id: process.env.NEXT_PUBLIC_PROJECT_ID,
         form_data: {
           full_name: formData.fullName?.trim() || '',
           company_name: formData.companyName?.trim() || '',
