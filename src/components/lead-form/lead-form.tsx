@@ -248,8 +248,8 @@ export default function LeadForm() {
             rows={3}
             className={`w-full px-3 py-2 rounded-lg border transition-all duration-200 font-['Assistant',sans-serif] text-[0.95rem] text-black bg-white ${
               hasError
-                ? "border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                : "border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                ? "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                : "border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-100"
             }`}
             placeholder={`Enter ${field.label.toLowerCase()}`}
             suppressHydrationWarning
@@ -321,14 +321,14 @@ export default function LeadForm() {
           title={field.type === "tel" ? "Only digits (no letters)" : undefined}
           className={`w-full px-4 md:py-3 py-1 rounded-lg border transition-all duration-200 font-['Assistant',sans-serif] text-[0.95rem] text-black bg-white ${
             hasError
-              ? "border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200"
               : "border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
           }`}
           placeholder={`Enter ${field.label.toLowerCase()}`}
           suppressHydrationWarning
         />
         {hasError && (
-          <p className="mt-1 text-sm text-blue-500 font-['Assistant',sans-serif]">
+          <p className="mt-1 text-sm text-red-500 font-['Assistant',sans-serif]">
             {errors[field.name]}
           </p>
         )}
