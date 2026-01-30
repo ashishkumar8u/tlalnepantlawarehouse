@@ -133,12 +133,13 @@ export default function LeadForm() {
         ) {
           newErrors[field.name] = t("form.invalidEmail");
         }
-        if (
-          field.type === "tel" &&
-          formData[field.name] &&
-          !/^[\d\s\-\+\(\)]+$/.test(formData[field.name])
-        ) {
-          newErrors[field.name] = t("form.invalidPhone");
+        if (field.type === "tel" && formData[field.name]) {
+          const digitsOnly = formData[field.name].replace(/\D/g, "");
+          if (/\D/.test(formData[field.name])) {
+            newErrors[field.name] = t("form.invalidPhoneDigits");
+          } else if (digitsOnly.length < 9 || digitsOnly.length > 12) {
+            newErrors[field.name] = t("form.invalidPhoneLength");
+          }
         }
       },
     );
@@ -247,8 +248,8 @@ export default function LeadForm() {
             rows={3}
             className={`w-full px-3 py-2 rounded-lg border transition-all duration-200 font-['Assistant',sans-serif] text-[0.95rem] text-black bg-white ${
               hasError
-                ? "border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                : "border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                ? "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                : "border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-100"
             }`}
             placeholder={`Enter ${field.label.toLowerCase()}`}
             suppressHydrationWarning
@@ -315,16 +316,19 @@ export default function LeadForm() {
           name={field.name}
           value={value}
           onChange={(e) => handleChange(field.name, e.target.value)}
+          inputMode={field.type === "tel" ? "numeric" : undefined}
+          maxLength={field.type === "tel" ? 12 : undefined}
+          title={field.type === "tel" ? "Only digits (no letters)" : undefined}
           className={`w-full px-4 md:py-3 py-1 rounded-lg border transition-all duration-200 font-['Assistant',sans-serif] text-[0.95rem] text-black bg-white ${
             hasError
-              ? "border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200"
               : "border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
           }`}
           placeholder={`Enter ${field.label.toLowerCase()}`}
           suppressHydrationWarning
         />
         {hasError && (
-          <p className="mt-1 text-sm text-blue-500 font-['Assistant',sans-serif]">
+          <p className="mt-1 text-sm text-red-500 font-['Assistant',sans-serif]">
             {errors[field.name]}
           </p>
         )}
