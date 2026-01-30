@@ -63,20 +63,19 @@ export async function trackButtonClick(buttonId: string): Promise<void> {
     const timezone = getTimezone();
 
     const payload = {
-      client_id: 'ae7b40cc-500c-4c6b-a57a-84d44a5ac103',
-       project_id: 'a0bd8496-9464-48d6-b82c-05b7a9028021',
+      client_id: 'df23fd13-4870-4026-b5e3-453ef46ec23f',
+      project_id: '021707e8-d447-437f-9c8b-c1f428ea5036',
       button_id: buttonId,
-      count: 1,
-      ip_address,
       timezone,
+      ip_address,
     };
 
     // Send API request - fire and forget, don't block UI
-    fetch('https://collection.apinext.in/forms/metadata', {
+    fetch('https://collection.apinext.in/api/v1/meta-data/submit-meta-data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "X-API-Key": "gAAAAABpZI3QbqPXKvM8kI3ow1G9xYLHQR8QccuXQQfCqQOn8y0Qcorpk3VCByfhZR_rb6-O9LRsdn5bmoSepBi7uSIwaCw_2mdRClkPK7DeJoQgKnqoBgvNj00XTdmAUS6ndze8o5fn",
+        'x-api-key': 'gAAAAABpcf813uh74UBTj6tu_mJEV070sLMcOT2APOjp11QM9XRdkLIH4Pqv_PbfFxnFjT5RcrA_yF-iCmvhq6UTflywJwKdgG17LaaA6o84VO022vmADRUndjcWBMpyl4lTSolf5xIq',
       },
       body: JSON.stringify(payload),
     }).catch((error) => {

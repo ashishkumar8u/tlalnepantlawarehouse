@@ -20,11 +20,11 @@ export default function LeadForm() {
   }, []);
 
   const clientId = useMemo(() => {
-    return process.env.NEXT_PUBLIC_CLIENT_ID || 'ae7b40cc-500c-4c6b-a57a-84d44a5ac103';
+    return process.env.NEXT_PUBLIC_CLIENT_ID || 'df23fd13-4870-4026-b5e3-453ef46ec23f';
   }, []);
 
   const apiKey = useMemo(() => {
-    return process.env.NEXT_PUBLIC_API_KEY || 'gAAAAABpZI3QbqPXKvM8kI3ow1G9xYLHQR8QccuXQQfCqQOn8y0Qcorpk3VCByfhZR_rb6-O9LRsdn5bmoSepBi7uSIwaCw_2mdRClkPK7DeJoQgKnqoBgvNj00XTdmAUS6ndze8o5fn';
+    return process.env.NEXT_PUBLIC_API_KEY || 'gAAAAABpcf813uh74UBTj6tu_mJEV070sLMcOT2APOjp11QM9XRdkLIH4Pqv_PbfFxnFjT5RcrA_yF-iCmvhq6UTflywJwKdgG17LaaA6o84VO022vmADRUndjcWBMpyl4lTSolf5xIq';
   }, []);
 
   const toNumberIfPossible = (value?: string) => {
@@ -150,7 +150,7 @@ export default function LeadForm() {
 
       const payload = {
         client_id: clientId,
-         project_id: "a0bd8496-9464-48d6-b82c-05b7a9028021",
+         project_id: "021707e8-d447-437f-9c8b-c1f428ea5036",
         form_data: {
           full_name: formData.fullName?.trim() || '',
           company_name: formData.companyName?.trim() || '',
@@ -169,7 +169,7 @@ export default function LeadForm() {
         },
       };
 
-      const response = await fetch(`${apiHost}/forms`, {
+      const response = await fetch(`${apiHost}/api/v1/forms/submit-form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
